@@ -3,11 +3,15 @@
 
 <html>
 <head>
-    <title><%= "some title" %></title>
-    <link rel="stylesheet" href="styles.css">
+    <jsp:include page="partials/head.jsp">
+        <jsp:param name="title" value="home"/>
+    </jsp:include>
 </head>
 <body>
+    <div>
+        <jsp:include page="partials/nav.jsp" />
 
-
+        <a href="login.jsp"><button>Login</button></a>
+    </div>
 </body>
 </html>
