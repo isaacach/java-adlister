@@ -1,9 +1,6 @@
 package dao;
 
-import dao.Ads;
-import dao.ListAdsDao;
 import models.Config;
-
 import java.sql.SQLException;
 
 public class DaoFactory {
