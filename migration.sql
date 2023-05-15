@@ -18,7 +18,3 @@ CREATE TABLE ads (
                      description TEXT NOT NULL,
                      FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
-INSERT INTO users VALUES (1, 'isaac', 'isaac@email.com', 'password');
-
-INSERT INTO ads VALUES (1, 1, 'playstation for sale', 'This is a slightly used playstation');
