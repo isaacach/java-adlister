@@ -2,15 +2,17 @@ package dao;
 
 import dao.Ads;
 import dao.ListAdsDao;
+import models.Config;
 
 import java.sql.SQLException;
 
 public class DaoFactory {
     private static Ads adsDao;
+    private static Config config = new Config();
 
     public static Ads getAdsDao() throws SQLException {
         if (adsDao == null) {
-            adsDao = new mySQLAdsDao();
+            adsDao = new MySQLAdsDao(config);
         }
         return adsDao;
     }

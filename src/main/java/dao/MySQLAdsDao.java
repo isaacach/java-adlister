@@ -8,19 +8,16 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class mySQLAdsDao implements Ads{
+public class MySQLAdsDao implements Ads{
     private Connection connection;
 
-    public mySQLAdsDao() throws SQLException {
-    }
-
-    public void MySQLAdsDao() {
+    public MySQLAdsDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                    Config.getUrl(),
-                    Config.getUsername(),
-                    Config.getPassword()
+                    config.getUrl(),
+                    config.getUsername(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the db", e);
