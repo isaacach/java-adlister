@@ -2,12 +2,14 @@ package controllers;
 
 import dao.DaoFactory;
 import models.Ad;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
@@ -22,7 +24,11 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("title"),
             request.getParameter("description")
         );
-        DaoFactory.getAdsDao().insert(ad);
+        try {
+            DaoFactory.getAdsDao().insert(ad);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         response.sendRedirect("/ads");
     }
 }
