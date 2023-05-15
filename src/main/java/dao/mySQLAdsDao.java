@@ -11,22 +11,25 @@ import java.util.List;
 public class mySQLAdsDao implements Ads{
     private Connection connection;
 
-    public void MySQLAdsDao(Config config) {
+    public mySQLAdsDao() throws SQLException {
+    }
+
+    public void MySQLAdsDao() {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                    config.getUrl(),
-                    config.getUsername(),
-                    config.getPassword()
+                    Config.getUrl(),
+                    Config.getUsername(),
+                    Config.getPassword()
             );
         } catch (SQLException e) {
-            throw new RuntimeException("Error connecting to the database!", e);
+            throw new RuntimeException("Error connecting to the db", e);
         }
     }
 
     @Override
     public List<Ad> all() {
-        Statement stmt = null;
+        Statement stmt;
         try {
             stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM ads");
