@@ -27,13 +27,15 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public User findByUsername(String username) {
-        Statement stmt = null;
+        String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
         try {
-            stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
-            return createUserFromResults(rs, "search");
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+            User isUser = extractUser(rs);
+            return isUser;
         } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all ads.", e);
+            throw new RuntimeException("Error finding user", e);
         }
     }
 
