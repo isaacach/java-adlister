@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:src/main/java/models/Ad.java
 package models;
+========
+package com.codeup.adlister.models;
+>>>>>>>> user-input-exercise:src/main/java/com/codeup/adlister/models/Ad.java
 
 public class Ad {
     private long id;

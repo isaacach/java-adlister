@@ -1,7 +1,14 @@
+<<<<<<<< HEAD:src/main/java/controllers/CreateAdServlet.java
 package controllers;
 
 import dao.DaoFactory;
 import models.Ad;
+========
+package com.codeup.adlister.controllers;
+
+import com.codeup.adlister.dao.DaoFactory;
+import com.codeup.adlister.models.Ad;
+>>>>>>>> user-input-exercise:src/main/java/com/codeup/adlister/controllers/CreateAdServlet.java
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

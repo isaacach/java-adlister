@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:src/main/java/controllers/LogoutServlet.java
 package controllers;
+========
+package com.codeup.adlister.controllers;
+>>>>>>>> user-input-exercise:src/main/java/com/codeup/adlister/controllers/LogoutServlet.java
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

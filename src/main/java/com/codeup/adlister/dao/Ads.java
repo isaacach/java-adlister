@@ -1,6 +1,12 @@
+<<<<<<<< HEAD:src/main/java/dao/Ads.java
 package dao;
 
 import models.Ad;
+========
+package com.codeup.adlister.dao;
+
+import com.codeup.adlister.models.Ad;
+>>>>>>>> user-input-exercise:src/main/java/com/codeup/adlister/dao/Ads.java
 
 import java.util.List;
 

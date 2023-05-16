@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:src/main/java/controllers/CounterServlet.java
 package controllers;
+========
+package com.codeup.adlister.controllers;
+>>>>>>>> user-input-exercise:src/main/java/com/codeup/adlister/controllers/CounterServlet.java
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

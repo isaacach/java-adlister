@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:src/main/java/controllers/ViewProfileServlet.java
 package controllers;
+========
+package com.codeup.adlister.controllers;
+>>>>>>>> user-input-exercise:src/main/java/com/codeup/adlister/controllers/ViewProfileServlet.java
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
