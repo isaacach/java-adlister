@@ -60,20 +60,20 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-    private User extractUser(ResultSet rs) throws SQLException {
-        return new User(
-                rs.getLong("id"),
-                rs.getString("username"),
-                rs.getString("email"),
-                rs.getString("password")
-        );
-    }
+//    private User extractUser(ResultSet rs) throws SQLException {
+//        return new User(
+//                rs.getLong("id"),
+//                rs.getString("username"),
+//                rs.getString("email"),
+//                rs.getString("password")
+//        );
+//    }
 
-    private User createUserFromResults(ResultSet rs) throws SQLException {
-        User user = new User();
-        while (rs.next()) {
-            user = extractUser(rs);
-        }
-        return user;
-    }
+//    private User createUserFromResults(ResultSet rs) throws SQLException {
+//        User user = new User();
+//        while (rs.next()) {
+//            user = extractUser(rs);
+//        }
+//        return user;
+//    }
 }
