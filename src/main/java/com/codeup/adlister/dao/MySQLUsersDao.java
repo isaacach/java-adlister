@@ -1,13 +1,9 @@
 package com.codeup.adlister.dao;
 
-import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 import models.Config;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MySQLUsersDao implements Users {
     private Connection connection;
@@ -27,17 +23,11 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public User findByUsername(String username) {
-        String query = "SELECT * FROM users WHERE username LIKE ? LIMIT 1";
+        String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, username);
-            ResultSet rs = stmt.executeQuery();
-            return new User(
-                    rs.getLong("id"),
-                    rs.getString("username"),
-                    rs.getString("email"),
-                    rs.getString("password")
-            );
+            return extractUser(stmt.executeQuery());
         } catch (SQLException e) {
             throw new RuntimeException("Error finding user", e);
         }
@@ -60,20 +50,15 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-    private User extractUser(ResultSet rs) throws SQLException {
-        return new User(
-                rs.getLong("id"),
-                rs.getString("username"),
-                rs.getString("email"),
-                rs.getString("password")
-        );
-    }
-
-    private User createUserFromResults(ResultSet rs) throws SQLException {
-        User user = new User();
-        while (rs.next()) {
-            user = extractUser(rs);
-        }
-        return user;
-    }
+   private User extractUser(ResultSet rs) throws SQLException {
+       if (!rs.next()) {
+           return null;
+       }
+       return new User(
+               rs.getLong("id"),
+               rs.getString("username"),
+               rs.getString("email"),
+               rs.getString("password")
+       );
+   }
 }
